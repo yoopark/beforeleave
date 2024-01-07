@@ -1,3 +1,11 @@
 'use strict';
 
-alert('Hello, World!');
+(() => {
+  const modal = document.getElementById('beforeleave-modal');
+
+  if (modal === null) {
+    return;
+  }
+
+  modal.style.display = 'block';
+})();
