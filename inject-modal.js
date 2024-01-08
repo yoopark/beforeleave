@@ -52,14 +52,13 @@
   });
 
   submitBtn.addEventListener('click', () => {
-    const request = {
-      comment: textArea.value,
+    const url = window.location.href;
+    const comment = textArea.value;
+    const storage = {
+      [url]: comment,
     };
-
-    chrome.runtime.sendMessage(request, (response) => {
-      modal.style.display = 'none';
-      console.log(response);
-    });
+    chrome.storage.sync.set(storage);
+    modal.style.display = 'none';
   });
 
   dialogFooter.appendChild(submitBtn);
