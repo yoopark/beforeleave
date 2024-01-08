@@ -80,6 +80,11 @@
   const textArea = document.createElement('textarea');
   textArea.id = 'beforeleave-dialog-textarea';
   textArea.placeholder = 'Leave your thoughts before you leave...';
+  chrome.storage.sync.get(['comments'], (items) => {
+    const comments = JSON.parse(items.comments ?? '{}');
+    const url = window.location.href;
+    textArea.value = comments[url] ?? '';
+  });
 
   dialogBody.appendChild(textArea);
 
