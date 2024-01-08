@@ -58,6 +58,11 @@
   background-color: #fff;
 }
 
+#beforeleave-dialog-submit:disabled {
+  cursor: not-allowed;
+  background-color: #eee;
+}
+
 #beforeleave-dialog-submit:hover {
   background-color: #ddd;
 }

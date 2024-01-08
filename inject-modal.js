@@ -46,6 +46,11 @@
   submitBtn.id = 'beforeleave-dialog-submit';
   submitBtn.innerText = 'Submit';
 
+  submitBtn.disabled = true;
+  textArea.addEventListener('input', () => {
+    submitBtn.disabled = textArea.value === '';
+  });
+
   dialogFooter.appendChild(submitBtn);
 
   dialog.appendChild(dialogHeader);
