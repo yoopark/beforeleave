@@ -86,6 +86,39 @@ const truncate = (str, n) => {
   const dialogFooter = document.createElement('div');
   dialogFooter.id = 'beforeleave-dialog-footer';
 
+  const enableSiteCheckbox = document.createElement('input');
+  enableSiteCheckbox.id = 'beforeleave-dialog-enable-site';
+  enableSiteCheckbox.type = 'checkbox';
+
+  chrome.storage.sync.get(['enableSites'], (items) => {
+    const enableSites = JSON.parse(items.enableSites ?? '[]');
+    const url = window.location.host;
+    enableSiteCheckbox.checked = enableSites.includes(url);
+  });
+
+  enableSiteCheckbox.addEventListener('change', (event) => {
+    const url = window.location.host;
+    chrome.storage.sync.get(['enableSites'], (items) => {
+      const enableSites = JSON.parse(items.enableSites ?? '[]');
+      if (event.target.checked) {
+        enableSites.push(url);
+      } else {
+        const index = enableSites.indexOf(url);
+        if (index > -1) {
+          enableSites.splice(index, 1);
+        }
+      }
+      chrome.storage.sync.set({ enableSites: JSON.stringify(enableSites) });
+    });
+  });
+
+  const enableSiteLabel = document.createElement('label');
+  enableSiteLabel.id = 'beforeleave-dialog-enable-site-label';
+  enableSiteLabel.innerText = `Enable on ${window.location.host}`;
+
+  enableSiteLabel.appendChild(enableSiteCheckbox);
+  dialogFooter.appendChild(enableSiteLabel);
+
   const submitBtn = document.createElement('button');
   submitBtn.id = 'beforeleave-dialog-submit';
   submitBtn.innerText = 'Submit';

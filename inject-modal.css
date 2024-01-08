@@ -91,7 +91,14 @@
 
 #beforeleave-dialog-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#beforeleave-dialog-enable-site-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 #beforeleave-dialog-submit {
