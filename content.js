@@ -7,5 +7,5 @@
     return;
   }
 
-  modal.style.display = 'block';
+  modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
 })();
