@@ -98,11 +98,15 @@ const truncate = (str, n) => {
   submitBtn.addEventListener('click', () => {
     const url = window.location.href;
     const comment = textArea.value;
-    const storage = {
-      [url]: comment,
-    };
-    chrome.storage.sync.set(storage);
-    modal.style.display = 'none';
+
+    chrome.storage.sync.get('comments', (items) => {
+      const comments = JSON.parse(items.comments ?? '{}');
+
+      comments[url] = comment;
+      chrome.storage.sync.set({ comments: JSON.stringify(comments) });
+
+      modal.style.display = 'none';
+    });
   });
 
   dialogFooter.appendChild(submitBtn);

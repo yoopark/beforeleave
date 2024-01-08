@@ -28,5 +28,6 @@
       "js": ["inject-modal.js"],
       "css": ["inject-modal.css"]
     }
-  ]
+  ],
+  "options_page": "options.html"
 }
