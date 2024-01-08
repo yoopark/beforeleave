@@ -2,3 +2,53 @@
   margin-left: 20px;
   cursor: pointer;
 }
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.comment-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.open-graph {
+  display: flex;
+  gap: 10px;
+}
+
+.open-graph-image {
+  width: 140px;
+  object-fit: contain;
+}
+
+.open-graph-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 240px;
+}
+
+.open-graph-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.open-graph-description {
+  font-size: 12px;
+  color: #767676;
+}
+
+.comment-text {
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}

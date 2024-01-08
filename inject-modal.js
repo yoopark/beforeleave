@@ -1,10 +1,10 @@
 'use strict';
 
-const truncate = (str, n) => {
-  return str.length > n ? str.slice(0, n - 1) + ' …' : str;
-};
-
 (() => {
+  const truncate = (str, n) => {
+    return str.length > n ? str.slice(0, n - 1) + ' …' : str;
+  };
+
   const modal = document.createElement('div');
   modal.id = 'beforeleave-modal';
 
