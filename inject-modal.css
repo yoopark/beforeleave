@@ -2,6 +2,12 @@
   display: none;
 }
 
+#beforeleave-modal * {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #151515;
+}
+
 #beforeleave-dimmer {
   position: fixed;
   top: 0;
@@ -32,8 +38,46 @@
   align-items: center;
 }
 
+#beforeleave-dialog-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 #beforeleave-dialog-close {
   cursor: pointer;
+}
+
+#beforeleave-dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#beforeleave-dialog-open-graph {
+  display: flex;
+  gap: 10px;
+}
+
+#beforeleave-dialog-open-graph-image {
+  width: 140px;
+  object-fit: contain;
+}
+
+#beforeleave-dialog-open-graph-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 240px;
+}
+
+#beforeleave-dialog-open-graph-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#beforeleave-dialog-open-graph-description {
+  font-size: 12px;
+  color: #767676;
 }
 
 #beforeleave-dialog-textarea {

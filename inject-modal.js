@@ -1,5 +1,9 @@
 'use strict';
 
+const truncate = (str, n) => {
+  return str.length > n ? str.slice(0, n - 1) + ' …' : str;
+};
+
 (() => {
   const modal = document.createElement('div');
   modal.id = 'beforeleave-modal';
@@ -32,6 +36,46 @@
 
   const dialogBody = document.createElement('div');
   dialogBody.id = 'beforeleave-dialog-body';
+
+  const openGraph = document.createElement('div');
+  openGraph.id = 'beforeleave-dialog-open-graph';
+
+  fetch(window.location.href)
+    .then((response) => {
+      return response.text();
+    })
+    .then((html) => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const image = doc.querySelector('meta[property="og:image"]');
+      const title = doc.querySelector('meta[property="og:title"]');
+      const description = doc.querySelector('meta[property="og:description"]');
+
+      const openGraphImage = document.createElement('img');
+      openGraphImage.id = 'beforeleave-dialog-open-graph-image';
+      openGraphImage.src = image ? image.content : '';
+
+      const openGraphContent = document.createElement('div');
+      openGraphContent.id = 'beforeleave-dialog-open-graph-content';
+
+      const openGraphTitle = document.createElement('div');
+      openGraphTitle.id = 'beforeleave-dialog-open-graph-title';
+      openGraphTitle.innerText = title ? title.content : '';
+
+      const openGraphDescription = document.createElement('div');
+      openGraphDescription.id = 'beforeleave-dialog-open-graph-description';
+      openGraphDescription.innerText = description
+        ? truncate(description.content, 80)
+        : '';
+
+      openGraphContent.appendChild(openGraphTitle);
+      openGraphContent.appendChild(openGraphDescription);
+
+      openGraph.appendChild(openGraphImage);
+      openGraph.appendChild(openGraphContent);
+    });
+
+  dialogBody.appendChild(openGraph);
 
   const textArea = document.createElement('textarea');
   textArea.id = 'beforeleave-dialog-textarea';
