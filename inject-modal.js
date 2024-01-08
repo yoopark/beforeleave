@@ -51,6 +51,17 @@
     submitBtn.disabled = textArea.value === '';
   });
 
+  submitBtn.addEventListener('click', () => {
+    const request = {
+      comment: textArea.value,
+    };
+
+    chrome.runtime.sendMessage(request, (response) => {
+      modal.style.display = 'none';
+      console.log(response);
+    });
+  });
+
   dialogFooter.appendChild(submitBtn);
 
   dialog.appendChild(dialogHeader);

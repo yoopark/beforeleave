@@ -18,7 +18,7 @@
     },
     "default_title": "Beforeleave"
   },
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
   "background": {
     "service_worker": "background.js"
   },
