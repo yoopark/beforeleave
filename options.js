@@ -56,6 +56,11 @@
           const commentItem = document.createElement('li');
           commentItem.className = 'comment-item';
 
+          const openGraphLink = document.createElement('a');
+          openGraphLink.href = url;
+          openGraphLink.target = '_blank';
+          openGraphLink.rel = 'noopener noreferrer';
+
           const openGraph = document.createElement('div');
           openGraph.className = 'open-graph';
 
@@ -94,11 +99,13 @@
               openGraph.appendChild(openGraphContent);
             });
 
+          openGraphLink.appendChild(openGraph);
+
           const commentText = document.createElement('div');
           commentText.className = 'comment-text';
           commentText.textContent = comment;
 
-          commentItem.appendChild(openGraph);
+          commentItem.appendChild(openGraphLink);
           commentItem.appendChild(commentText);
 
           commentsList.appendChild(commentItem);
