@@ -6,7 +6,7 @@ chrome.action.onClicked.addListener((tab) => {
   }
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    files: ['onclick-badge.js'],
+    files: ['toggle-dialog.js'],
   });
 });
 
@@ -20,7 +20,7 @@ chrome.commands.onCommand.addListener((command) => {
       }
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        files: ['onclick-badge.js'],
+        files: ['toggle-dialog.js'],
       });
     });
   }
