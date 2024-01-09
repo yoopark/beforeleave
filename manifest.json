@@ -18,7 +18,7 @@
     },
     "default_title": "Beforeleave"
   },
-  "permissions": ["activeTab", "scripting", "storage"],
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
   "background": {
     "service_worker": "background.js"
   },
@@ -29,5 +29,14 @@
       "css": ["inject-modal.css"]
     }
   ],
-  "options_page": "options.html"
+  "options_page": "options.html",
+  "commands": {
+    "toggle-dialog": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+1",
+        "mac": "Command+Shift+1"
+      },
+      "description": "Toggle dialog"
+    }
+  }
 }
