@@ -32,8 +32,4 @@
     event.returnValue = '';
     modal.style.display = 'block';
   });
-
-  window.addEventListener('unload', (event) => {
-    modal.style.display = 'none';
-  });
 })();
