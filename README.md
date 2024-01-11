@@ -2,7 +2,7 @@
   <img src="readme-assets/logo.png" width="100" height="100" />
   <h1>Beforeleave</h1>
   <p>Note down your thoughts before you leave the page 📝<p>
-  <img src="https://img.shields.io/chrome-web-store/v/jbdbkocdcmghcjlncbpaakehmpkgdmcj" />
+  <a href="https://chromewebstore.google.com/detail/beforeleave/jbdbkocdcmghcjlncbpaakehmpkgdmcj"><img src="https://img.shields.io/chrome-web-store/v/jbdbkocdcmghcjlncbpaakehmpkgdmcj" /></a>
 </div>
 
 ## Introduction
